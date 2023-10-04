@@ -207,7 +207,6 @@ int main() {
 
         switch (choice) {
             case 1:
-                // Taking input from the user for the number of nodes and their data
                 printf("Enter the number of nodes to create: ");
                 scanf("%d", &n);
                 for (int i = 0; i < n; i++) {

@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the structure for a node
+
 struct node {
     int data;
     struct node* next;
     struct node* prev;
 };
 
-// Declare the global head pointer
+
 struct node* head = NULL;
 
-// Function to create a new node
+
 struct node* getnode(int x) {
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
     newnode->data = x;
@@ -20,7 +20,7 @@ struct node* getnode(int x) {
     return newnode;
 }
 
-// Function to insert a node at the beginning
+
 void InsertAtHead(int x) {
     struct node* newnode = getnode(x);
     if (head == NULL) {
@@ -32,7 +32,7 @@ void InsertAtHead(int x) {
     head = newnode;
 }
 
-// Function to insert a node at the end
+
 void InsertAtEnd(int x) {
     struct node* newnode = getnode(x);
     if (head == NULL) {
@@ -47,7 +47,7 @@ void InsertAtEnd(int x) {
     newnode->prev = temp;
 }
 
-// Function to insert a node at a specified position
+
 void InsertAtNthPosition(int x, int position) {
     struct node* newnode = getnode(x);
     if (position == 1 || head == NULL) {
@@ -82,7 +82,6 @@ void InsertAtNthPosition(int x, int position) {
     }
 }
 
-// Function to delete a node at the beginning
 void DeleteAtBeginning() {
     struct node* temp = head;
     head = head->next;
@@ -92,7 +91,7 @@ void DeleteAtBeginning() {
     free(temp);
 }
 
-// Function to delete a node at the end
+
 void DeleteAtEnd() {
     struct node* temp = head;
     while (temp->next != NULL) {
@@ -102,7 +101,7 @@ void DeleteAtEnd() {
     free(temp);
 }
 
-// Function to delete a node at a specified position
+
 void DeleteAtNthPosition(int position) {
     if (position == 1) {
         struct node* temp = head;
@@ -130,24 +129,24 @@ void DeleteAtNthPosition(int position) {
     free(temp);
 }
 
-// Function to search for a value in the list
+
 int Search(int target) {
     struct node* temp = head;
     int position = 1;
     while (temp != NULL) {
         if (temp->data == target) {
-            return position; // Element found at this position
+            return position; 
         }
         temp = temp->next;
         position++;
     }
-    return -1; // Element not found in the list
+    return -1; 
 }
 
-// Function to sort the list using Bubble Sort
+
 void BubbleSort() {
     if (head == NULL || head->next == NULL) {
-        // The list is already sorted or empty.
+        
         return;
     }
     int swapped;
@@ -158,7 +157,7 @@ void BubbleSort() {
         temp = head;
         while (temp->next != last) {
             if (temp->data > temp->next->data) {
-                // Swap the data of the two nodes.
+       
                 int tempData = temp->data;
                 temp->data = temp->next->data;
                 temp->next->data = tempData;
@@ -167,14 +166,14 @@ void BubbleSort() {
             temp = temp->next;
         }
         if (!swapped) {
-            // If no swaps were made in this pass, the list is sorted.
+          
             break;
         }
         last = temp;
     }
 }
 
-// Function to reverse print the list
+
 void reversePrint() {
     struct node* temp = head;
     if (temp == NULL) {
@@ -191,7 +190,7 @@ void reversePrint() {
     printf("\n");
 }
 
-// Function to print the list
+
 void print() {
     struct node* temp = head;
     printf("LIST IS: ");
